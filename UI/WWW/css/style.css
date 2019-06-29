@@ -1,0 +1,640 @@
+:root {
+	--primary: rgba(13, 110, 139, 0.85);
+	--secondary: rgba(229, 148, 0, 0.9);
+	--overlay-color: rgba(24, 39, 51, 0.6);
+	--light: #f8f9fa;
+	--primary-two: #007bff;
+	--dark: #333;
+	--danger: #dc3545;
+	--info: #17a2b8;
+	--btn-bg: #93cb52;
+	--box-shadow: rgba(209, 209, 213) 0px 0px 4px;
+	--box-shadow-1: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	--box-shadow-hover: 0 16px 32px 0 rgba(0, 0, 0, 0.2);
+	--menu-speed: 0.6s;
+}
+* {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	height: 100%;
+	line-height: 1.4;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background-color: var(--light);
+}
+/* Utilities */
+a {
+	text-decoration: none;
+}
+ul {
+	list-style: none;
+}
+input:focus {
+	outline: none;
+}
+.text-lead {
+	color: var(--darker);
+	margin: 30px 50px;
+	font-size: 4rem;
+	font-weight: 500;
+}
+.text-description {
+	color: #325d64;
+	font-size: 1rem;
+}
+.btn-sm {
+	display: inline-block;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	background: var(--primary-two);
+	color: #fff;
+	padding: 0.65rem 1rem;
+	margin: 0.6rem 1rem 0px 0px;
+	transition: background-color 1s step-start;
+	text-decoration: none;
+	width: 7rem;
+}
+.btn-sm:hover {
+	background-color: var(--secondary);
+}
+.btn {
+	display: inline-block;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	background: var(--primary-two);
+	color: #fff;
+	text-align: center;
+	padding: 0.65rem 0px;
+	margin: 0.6rem 1rem 0px 0px;
+	transition: background-color 1s step-start;
+	text-decoration: none;
+	width: 8.5rem;
+}
+.btn:hover {
+	background-color: var(--secondary);
+}
+
+.btn-block {
+	display: block;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	background: var(--primary-two);
+	color: #fff;
+	padding: 0.65rem 1rem;
+	margin: 0.6rem 1rem 0px 0px;
+	transition: background-color 1s step-start;
+	text-decoration: none;
+	width: 100%;
+}
+.btn-block:hover {
+	background-color: var(--secondary);
+}
+
+/* Utilities End */
+
+nav {
+	display: flex;
+	background-color: #fff;
+	color: var(--primary);
+	width: 100%;
+	height: 80px;
+	justify-content: space-around;
+	align-items: center;
+	border-bottom: 5px solid var(--primary);
+	padding: 20px 0px;
+}
+.main-container div > h2 {
+	text-align: center;
+	font-size: 1.8rem;
+}
+/* .main-container {
+	margin: 2rem auto;
+	height: 100%;
+	width: 80%;
+	display: flex;
+	justify-content: center;
+}
+.main-container > div {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.main-container div > h2 {
+	text-align: center;
+}
+
+/* .main-container div > .property-container {
+	width: 25rem;
+	margin: 1rem auto;
+} */
+
+/* Navbar Menu css */
+.menu-wrap {
+	display: flex;
+	flex: 3;
+	justify-self: normal;
+	align-items: center;
+	text-align: center;
+}
+@media screen and (min-width: 500px) {
+	.menu-wrap {
+		justify-content: flex-end;
+	}
+}
+/* Hide the checkbox */
+.menu-wrap .toggler {
+	opacity: 0;
+}
+.menu-wrap .menu > div > div > ul {
+	margin: 0px 0.8rem;
+	display: flex;
+}
+.menu-wrap .menu > div > div > ul > li {
+	list-style: none;
+	color: var(--primary);
+	font-size: 1.2rem;
+	justify-self: flex-end;
+	padding: 1rem;
+}
+.menu-wrap .menu > div > div > ul > li > a {
+	color: inherit;
+	text-decoration: none;
+	transition: color 0.4 ease;
+}
+.menu-wrap .menu > div > div > ul > li > a:hover {
+	color: var(--secondary);
+}
+#user {
+	display: none;
+}
+.dropdown {
+	overflow: hidden;
+}
+.dropdown .dropbtn {
+	font-size: 16px;
+	border: none;
+	outline: none;
+	color: var(--primary);
+	background-color: white;
+	/* padding: 14px 0px; */
+}
+
+.dropdown .dropbtn:hover {
+	color: var(--secondary);
+}
+.dropdown-content {
+	display: none;
+	position: absolute;
+	/* right: 0.4rem; */
+	background-color: white;
+	min-width: 160px;
+	border-radius: 0px 0px 5px 5px;
+	box-shadow: var(--box-shadow);
+	z-index: 1;
+}
+.last-one:hover .dropdown-content {
+	right: 0.2rem;
+}
+.dropdown:hover .dropdown-content {
+	display: block;
+	display: flex;
+	flex-direction: column;
+	/* padding: 5px; */
+}
+.dropdown:hover .dropdown-content a {
+	display: block;
+	color: #333;
+	background-color: #fff;
+}
+.dropdown:hover .dropdown-content a:hover {
+	color: #fff;
+	background-color: var(--secondary);
+	width: 100%;
+}
+
+/* Navbar Menu Css Ends */ /* Showcase CSS */
+.container {
+	max-width: 860px;
+	height: 100%;
+	margin: auto;
+	overflow: hidden;
+	padding: 0 3rem;
+}
+#showcase {
+	background-color: var(--overlay-color);
+	color: #fff;
+	height: 80vh;
+	position: relative;
+}
+/* the overlay css */
+#showcase:before {
+	content: "";
+	background: url("../images/for-sale.jpg") no-repeat center center/cover;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+#showcase .showcase-container {
+	display: flex;
+	flex-direction: column;
+	z-index: 1;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	height: 100%;
+}
+#showcase h1 {
+	font-size: 1.8rem;
+}
+.showcase-form {
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px auto 0px;
+}
+.showcase-form > input {
+	width: 100%;
+	height: 40px;
+	background-color: var(--light);
+	color: var(--dark);
+	border: none;
+	border-radius: 5px;
+	padding: auto 20px;
+	padding-left: 20px;
+	margin: 10px 0px;
+	/* border-bottom: 2px solid #fff; */
+	font-size: 1rem;
+	font-weight: 600;
+}
+form > input,
+select:focus {
+	outline: none;
+}
+/* Showcase CSS ENDS */
+
+/* what we do css */
+.what-we-do {
+	width: 80%;
+	margin: 1rem auto;
+	display: flex;
+	justify-content: space-around;
+}
+.what-we-do .box {
+	min-width: 300px;
+	height: 380px;
+	margin: 0px 1rem;
+	padding-top: 2rem;
+	text-align: center;
+	overflow: hidden;
+	box-shadow: var(--box-shadow);
+}
+
+/* what we do css end */
+
+/* SAME CSS ACROSS */
+.select-css {
+	display: block;
+	font-size: 16px;
+	font-weight: 600;
+	color: #444;
+	line-height: 1.3;
+	margin: 0.6rem auto;
+	padding: 0.5rem 1.4rem 0.5rem 0.8rem;
+	width: 100%;
+	box-sizing: border-box;
+	/* border: 1px solid #aaa; */
+	border-radius: 5px;
+	background-color: #fff;
+}
+.select-css:hover {
+	border-color: #aaa;
+	color: #222;
+}
+.select-css :focus {
+	border-color: #222;
+	outline: none;
+	border-radius: 5px;
+}
+.select-css:focus option:first-child {
+	display: none;
+}
+.select-css option {
+	font-weight: normal;
+	color: #fff;
+	background-color: #333;
+}
+/* END OF SAME CSS ACROSS */
+
+/* SMALLER SELECT ELEMENT */
+.select-small {
+	display: flex;
+	justify-content: space-between;
+}
+.select-css-smaller {
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 600;
+	color: #444;
+	line-height: 1.3;
+	margin: 0.6rem auto;
+	padding: 0.5rem 1.4rem 0.5rem 0.8rem;
+	width: 46%;
+	box-sizing: border-box;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+	background-color: #fff;
+}
+.select-css-smaller:nth-child(2) {
+	margin-left: 20px;
+}
+.select-css-smaller:hover {
+	border-color: #aaa;
+	color: #222;
+}
+.select-css-smaller :focus {
+	border-color: #222;
+	outline: none;
+	border-radius: 5px;
+}
+.select-css-smaller:focus option:first-child {
+	display: none;
+}
+.select-css-smaller option {
+	font-weight: normal;
+	color: #fff;
+	background-color: #333;
+}
+/* SMALL SELECT ELEMENT CSS ENDS */
+
+/* Action Select Button */
+.select-css-action {
+	display: inline-block;
+	font-size: 16px;
+	color: white;
+	line-height: 1;
+	margin: 0px auto;
+	width: 6rem;
+	height: 2rem;
+	padding: 0px 5px;
+	box-sizing: border-box;
+	border-radius: 2px;
+	background-color: var(--secondary);
+}
+
+.select-css-action :focus {
+	/* border-color: #222; */
+	outline: none;
+	border-radius: 5px;
+}
+.select-css-action:focus option:first-child {
+	display: none;
+}
+.select-css-action option {
+	font-weight: normal;
+	color: #fff;
+	background-color: #333;
+	margin: 0px;
+}
+/* Action Select CSS ENds */
+/* INPUT CONTAINER CSS */
+.input-container {
+	margin: 0.6rem auto;
+	width: 100%;
+	background-color: #ededed;
+	border: 1px solid #dfdfdf;
+	border-radius: 5px;
+}
+input[type = "file"] {
+	display: none;
+}
+.file-info {
+	font-size: 0.9rem;
+}
+.browse-btn {
+	background: #03a595;
+	color: #fff;
+	min-height: 35px;
+	padding: 10px;
+	border: none;
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
+}
+.browse-btn:hover {
+	background: #4ec0b4;
+}
+@media (max-width: 300px) {
+	button {
+		width: 100%;
+		border-bottom-left-radius: 5px;
+		border-top-left-radius: 5px;
+	}
+	.file-info {
+		display: block;
+		margin: 10px 5px;
+	}
+}
+
+/* END OF INPUT CONTAINER CSS */
+
+/* PROPERTY CARD CSS */
+.property-container {
+	display: flex;
+	/* flex-direction: column; */
+	margin: 1rem auto;
+	width: 25rem;
+	/* align-items: center; */
+	box-shadow: var(--box-shadow);
+	transition: all 0.3s;
+}
+
+.property-container:hover {
+	box-shadow: var(--box-shadow-hover);
+}
+.property-card {
+	display: flex;
+	flex-direction: column;
+	width: 25rem;
+	height: auto;
+	border-radius: 5px;
+}
+.images {
+	width: 100%;
+	height: 220px;
+}
+.property-details {
+	display: flex;
+	flex-direction: column;
+	margin: 10px 20px 10px;
+}
+.detail {
+	font-size: 1.2rem;
+	color: black;
+	font-weight: 600;
+}
+/* PROPERTY CARD CSS ENDS */
+
+/* FORM CSS STARTS */
+.ad-form {
+	max-width: 500px;
+	margin: 10px auto;
+	border: 1px solid var(--primary);
+	border-radius: 5px;
+	padding: 20px 5%;
+}
+.ad-form .card-header {
+	margin: 4px 0px;
+	font-size: 2rem;
+}
+.ad-form input[type='text'],
+input[type='password'],
+input[type='email'] {
+	display: block;
+	width: 100%;
+	margin: 8px 0px;
+	padding: 8px 20px;
+	border: 1px solid var(--primary);
+	border-radius: 4px;
+	transition: border 1s;
+}
+.ad-form > input[type='text'],
+input[type='password'],
+input[type='email']:focus {
+	border: 2px solid var(--primary);
+}
+
+.container-form {
+	max-width: 28rem;
+	margin: 2rem auto;
+	border: 1px solid var(--primary);
+	border-radius: 5px;
+	padding: 20px 2%;
+}
+.card-header {
+	margin: 4px 0px;
+	font-size: 2rem;
+	text-align: center;
+	color: var(--primary);
+}
+.container-form input[type='text'],
+input[type='password'],
+input[type='email'] {
+	display: block;
+	width: 100%;
+	margin: 8px auto;
+	padding: 8px 20px;
+	border: 1px solid var(--primary);
+	border-radius: 4px;
+	transition: border 0.65ms ease-in-out;
+}
+.container-form input[type='text']:focus,
+input[type='password']:focus,
+input[type='email']:focus,
+textarea:focus {
+	border: 2px solid var(--primary);
+}
+
+/* FORM CSS ENDS */
+textarea {
+	width: 100%;
+	font-size: 16px;
+	padding: 2px 8px;
+}
+.btn-group {
+	display: flex;
+	align-items: center;
+}
+.icon span {
+	margin: 0px 5px;
+	height: 24px;
+	padding: 2px;
+}
+
+.footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--primary);
+	color: #fff;
+	text-align: center;
+	height: 60px;
+	position: relative;
+	/* margin-top: 2rem; */
+}
+
+button img {
+	margin-left: 8px;
+	margin-top: inherit;
+	/* margin-bottom: 0px; */
+}
+.advertise {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	color: white;
+	background-color: var(--primary-two);
+	text-align: center;
+}
+.advertise h3 {
+	font-size: 1.8rem;
+}
+.advertise a {
+	display: block;
+	width: 8rem;
+	height: 2.5rem;
+	margin: 10px auto;
+	padding: 5px 0px;
+	color: white;
+	border: 1px solid white;
+	border-radius: 5px;
+	transition: all 0.95ms;
+}
+.advertise a:hover {
+	background-color: #93cb52;
+}
+.agent-contact {
+	display: flex;
+	justify-content: space-between;
+}
+
+.add-advert {
+	display: flex;
+	flex-direction: column;
+	margin: 20px 0px;
+	width: 100%;
+}
+.add-advert h2 {
+	align-self: center;
+	text-align: center;
+	border: 1px solid var(--primary);
+	width: 26rem;
+	height: 40px;
+	border-radius: 20px;
+}
+.add-advert h2 a > img {
+	height: 30px;
+	width: 30px;
+	/* float: right; */
+	color: #93cb52;
+	padding-top: 8px;
+	padding-left: 2rem;
+}
+.add-advert h2:hover {
+	border: 2px solid var(--primary);
+}
+#box {
+	margin: 1rem auto;
+}
+#box .view-all {
+	margin: 5px 0px 5px 20rem;
+	/* text-decoration: underline; */
+}
+#box h3 {
+	text-decoration: underline;
+}
