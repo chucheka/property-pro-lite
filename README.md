@@ -5,4 +5,4 @@
 https://.pivotaltracker.com/n/projects/
 
 ## UI hosted on gh-pages
-https://ucheka22.github.io/property-pro-lite/UI/WWW/UI
+https://ucheka22.github.io/property-pro-lite/UI
