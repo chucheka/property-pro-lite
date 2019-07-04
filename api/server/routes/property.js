@@ -46,5 +46,27 @@ router.post('/property', multerUploads, (req, res) => {
 		});
 	}
 });
+router.delete('/property/:propertyId', (req, res) => {
+	const Id = parseInt(req.params.propertyId, 10);
+	const arrLen = properties.length;
+	const deleteIndex = properties.findIndex((property) => property.id === Id);
+	if (deleteIndex === -1) {
+		res.status(404).json({
+			status: 'error',
+			error: 'Property ad does not exist'
+		});
+	} else {
+		properties.splice(deleteIndex, 1);
+		const newLen = properties.length;
+		if (arrLen > newLen) {
+			res.status(201).json({
+				status: 'success',
+				data: {
+					message: `property with id ${Id} successfully deleted!!`
+				}
+			});
+		}
+	}
+});
 
 export default router;
