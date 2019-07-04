@@ -3,5 +3,7 @@
 node_modules
 # dotenv environment variables file
 .env
+# coverage report
+coverage
 #build
 build
