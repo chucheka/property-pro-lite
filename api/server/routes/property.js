@@ -68,5 +68,21 @@ router.delete('/property/:propertyId', (req, res) => {
 		}
 	}
 });
+router.patch('/property/:propertyId/sold', (req, res) => {
+	const Id = parseInt(req.params.propertyId, 10);
+	const toMarkSold = properties.find((property) => property.id === Id);
+	if (toMarkSold && toMarkSold.status === 'available') {
+		toMarkSold.status = 'sold';
+		res.status(201).json({
+			status: 'success',
+			data: toMarkSold
+		});
+	} else {
+		res.status(400).json({
+			status: 'error',
+			error: 'property already marked sold!'
+		});
+	}
+});
 
 export default router;
