@@ -1,35 +1,12 @@
 import express from 'express';
-import { uploader, cloudinaryConfig } from '../config/cloudinaryConfig';
-import { multerUploads, dataUri } from '../middlewares/multer';
+// import { uploader, cloudinaryConfig } from '../config/cloudinaryConfig';
+// import { multerUploads, dataUri } from '../middlewares/multer';
 import { properties } from '../model/propertyDB';
 
 const router = express.Router();
 
-router.use('*', cloudinaryConfig);
-router.post('/property', multerUploads, (req, res) => {
-	if (req.file) {
-		const file = dataUri(req).content;
-		return uploader
-			.upload(file)
-			.then((result) => {
-				const image = result.url;
-				return res.status(200).json({
-					messge: 'Your image has been uploded successfully to cloudinary',
-					data: {
-						image
-					}
-				});
-			})
-			.catch((err) => {
-				console.log(err);
-				res.status(400).json({
-					messge: 'someting went wrong while processing your request',
-					data: {
-						err
-					}
-				});
-			});
-	}
+// router.use('*', cloudinaryConfig);
+router.post('/property', (req, res) => {
 	const newAD = req.body;
 	const oldAD = properties.find((ad) => ad.id === newAD.id);
 	if (oldAD) {
