@@ -32,14 +32,14 @@
 			"state": "Imo",
 			"city": "Owerri",
 			"address": "World Bank Housing Estate",
-			"type": "2 Bedroom",
+			"type": "4 Bedroom",
 			"created_on": "2019-09-21:01:34",
 			"image_url": "/image/avatar.png"
 		},
 		{
 			"id": 4,
 			"owner": 4,
-			"status": "available",
+			"status": "sold",
 			"price": 50000,
 			"state": "Imo",
 			"city": "Owerri",

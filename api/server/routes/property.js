@@ -62,6 +62,7 @@ router.patch('/property/:propertyId/sold', (req, res) => {
 	}
 });
 
+// Update a property ad
 router.patch('/property/:propertyId', (req, res) => {
 	const updateFileds = req.body;
 	const Id = parseInt(req.params.propertyId, 10);
@@ -98,6 +99,7 @@ router.get('/property/ads', (req, res) => {
 		});
 	}
 });
+// [[THIS GETS PROPERTIES OF SPECIFIC TYPE]]
 router.get('/property/propertyId', (req, res) => {
 	const propType = req.query.type;
 	const props = [];
