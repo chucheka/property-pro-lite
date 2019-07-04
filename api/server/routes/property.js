@@ -85,4 +85,75 @@ router.patch('/property/:propertyId/sold', (req, res) => {
 	}
 });
 
+router.patch('/property/:propertyId', (req, res) => {
+	const updateFileds = req.body;
+	const Id = parseInt(req.params.propertyId, 10);
+	const toUpdateAD = properties.find((property) => property.id === Id);
+	if (!toUpdateAD) {
+		res.status(400).json({
+			status: 'error',
+			error: 'Advert does not exist'
+		});
+	} else {
+		const updateKeys = Object.keys(updateFileds);
+		const updateValues = Object.values(updateFileds);
+		updateKeys.forEach((key, index) => {
+			toUpdateAD[key] = updateValues[index];
+		});
+		res.status(201).json({
+			status: 'success',
+			data: toUpdateAD
+		});
+	}
+});
+
+router.get('/property/ads', (req, res) => {
+	const len = properties.length;
+	if (len > 0) {
+		res.status(200).json({
+			status: 'success',
+			data: properties
+		});
+	} else {
+		res.status(404).json({
+			status: 'error',
+			error: 'There are no property ads'
+		});
+	}
+});
+router.get('/property/propertyId', (req, res) => {
+	const propType = req.query.type;
+	const props = [];
+	properties.forEach((element) => {
+		if (element.type === propType) {
+			props.push(element);
+		}
+	});
+	if (props.length === 0) {
+		res.status(404).json({
+			status: 'error',
+			error: 'Cannot find properties of specified type'
+		});
+	} else {
+		res.status(200).json({
+			status: 'success',
+			data: props
+		});
+	}
+});
+router.get('/property/:propertyId', (req, res) => {
+	const Id = parseInt(req.params.propertyId, 10);
+	const property = properties.find((prop) => prop.id === Id);
+	if (!property) {
+		res.status(404).json({
+			status: 'error',
+			error: 'Cannot find property ad'
+		});
+	} else {
+		res.status(200).json({
+			status: 'success',
+			data: property
+		});
+	}
+});
 export default router;
