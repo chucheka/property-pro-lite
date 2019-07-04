@@ -19,5 +19,22 @@ router.post('/user/auth/signup', (req, res) => {
 		});
 	}
 });
+router.post('/user/auth/signin', (req, res) => {
+	const payload = req.body;
+	const { email, password } = payload;
 
+	const checkUser = users.find((user) => user.email === email);
+
+	if (checkUser && checkUser.password === password) {
+		res.status(201).json({
+			status: 'success',
+			data: checkUser
+		});
+	} else if (!checkUser) {
+		res.status(401).json({
+			status: 'error',
+			error: 'Invalid email or password!!'
+		});
+	}
+});
 export default router;
