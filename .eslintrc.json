@@ -15,7 +15,8 @@
 		"indent": 0,
 		"no-tabs": 0,
 		"comma-dangle": 0,
-		"arrow-parens": 0
+		"arrow-parens": 0,
+		"consistent-return": 0
 	},
 	"extends": "airbnb-base"
 }

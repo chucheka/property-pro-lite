@@ -1,11 +1,56 @@
 import express from 'express';
-// import { uploader, cloudinaryConfig } from '../config/cloudinaryConfig';
-// import { multerUploads, dataUri } from '../middlewares/multer';
-import { properties } from '../model/propertyDB';
+import cloudinary from 'cloudinary';
+import dotenv from 'dotenv';
+import { resolve } from 'path';
+import uploads from '../middleware/multer';
 
+import { properties } from '../model/propertyDB';
 const router = express.Router();
 
-// router.use('*', cloudinaryConfig);
+router.use(express.static(resolve(__dirname, 'src/public')));
+dotenv.config();
+// Configure cloudinary
+cloudinary.config({
+	cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+	api_key: process.env.CLOUDINARY_API_KEY,
+	api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
+router.post('/uploads', uploads.single('image'), async (req, res) => {
+	try {
+		const result = await cloudinary.v2.uploader.upload(req.file.path);
+		res.send(result);
+	} catch (err) {
+		res.send(err);
+	}
+});
+router.get('/api/files', async (req, res) => {
+	try {
+		const images = await cloudinary.v2.api.resources_by_ids([ 'oqhf3o934ttnuomlkcjn' ], function(error, result) {
+			console.log(result);
+		});
+
+		if (!images || images.length === 0) {
+			return res.status(404).json({
+				err: 'No files exist'
+			});
+		}
+		// Files exist
+		res.json(images.resources[0]);
+
+		// return res.json(images.resources);
+	} catch (error) {
+		res.send(error);
+	}
+});
+// this worked
+router.delete('/files', (req, res) => {
+	let id = 'tcithl1kbhi8bxwhpdm1';
+	cloudinary.v2.api.delete_resources([ id ], function(error, result) {
+		console.log(result);
+	});
+});
+
 router.post('/property', (req, res) => {
 	const newAD = req.body;
 	const oldAD = properties.find((ad) => ad.id === newAD.id);
