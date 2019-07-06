@@ -1,13 +1,13 @@
-if: (type = push AND branch IN(master,develop)) OR (type = pull_request AND NOT branch =~ /no-ci)
-language : node_js
-node_js
-  - "stable"
-notifications:
-  email : false
-before_script : 
+language: node_js
+node_js:
+  - '8.11.2'
+cache:
+  directories:
+    - node_modules
+before_script: 
   - npm install
-script :
+script:
   - npm run test
-after_script : 
+after_script: 
   - npm run coverage
   - npm run coveralls
