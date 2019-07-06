@@ -25,9 +25,6 @@
 		"url": "https://github.com/ucheka22/property-pro-lite/issues"
 	},
 	"homepage": "https://github.com/ucheka22/property-pro-lite#readme",
-	"engines": {
-		"node": "8.11.2"
-	},
 	"devDependencies": {
 		"@babel/cli": "^7.4.4",
 		"@babel/core": "^7.4.5",
