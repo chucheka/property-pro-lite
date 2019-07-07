@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/ucheka22/property-pro-lite.svg?branch=develop)](https://travis-ci.com/ucheka22/property-pro-lite)
+
 # PropertyPro-Lite
 >PropertyPro Lite is a online platform where people can create and search properties for sale or rent.
 
