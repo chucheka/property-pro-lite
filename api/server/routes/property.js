@@ -43,9 +43,9 @@ router.use(express.static(resolve(__dirname, 'src/public')));
 
 router.post('/property', uploads.single('image'), PropertyController.postAdvert);
 router.delete('/property/:propertyId', PropertyController.deleteAdvert);
-// router.patch('/property/:propertyId/sold', PropertyController.markAsSold);
-// router.patch('/property/:propertyId', PropertyController.updateAdvert);
+router.patch('/property/:propertyId/sold', PropertyController.markAsSold);
+router.patch('/property/:propertyId', PropertyController.updateAdvert);
 router.get('/property/ads', PropertyController.getPropertyAdverts);
-// router.get('/property/propertyId', PropertyController.getSpecificProperty);
-// router.get('/property/:propertyId', PropertyController.getPropertyADvert);
+router.get('/property/propertyId', PropertyController.getSpecificProperty);
+router.get('/property/:propertyId', PropertyController.getPropertyADvert);
 export default router;

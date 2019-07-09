@@ -14,12 +14,19 @@ export default class PropertyController {
 	// FOR CREATING PROPERTY ADVERT
 	static async postAdvert(req, res) {
 		const newAD = req.body;
-		const oldAD = properties.find((ad) => ad.id === newAD.id);
-		if (oldAD) {
-			console.log(oldAD);
-			return res.status(400).json({
-				status: 'error',
-				error: 'Property ad already exists'
+		const noFile = req.file;
+		if (!noFile) {
+			const oldAD = properties.find((ad) => ad.id === newAD.id);
+			if (oldAD) {
+				return res.status(400).json({
+					status: 'error',
+					error: 'Property ad already exists'
+				});
+			}
+			properties.push(newAD);
+			return res.status(201).json({
+				status: 'success',
+				data: properties[properties.length - 1]
 			});
 		}
 		try {
@@ -31,11 +38,10 @@ export default class PropertyController {
 			console.log(result);
 			newAD.image_url = result.public_id;
 			properties.push(newAD);
-			res.send(newAD);
-			// res.status(201).json({
-			// 	status: 'success',
-			// 	data: properties[properties.length - 1]
-			// });
+			res.status(201).json({
+				status: 'success',
+				data: properties[properties.length - 1]
+			});
 		} catch (err) {
 			console.log('Image upload failed');
 			console.log(err);
@@ -47,7 +53,7 @@ export default class PropertyController {
 	}
 
 	static async deleteAdvert(req, res) {
-		const Id = `${req.params.propertyId}`;
+		const Id = req.params.propertyId;
 		const arrLen = properties.length;
 		const deleteIndex = properties.findIndex((property) => property.id === Id);
 		if (deleteIndex === -1) {
@@ -66,13 +72,15 @@ export default class PropertyController {
 				}
 			});
 		}
-		try {
-			const imageId = properties[deleteIndex].image_url;
-			console.log(imageId);
-			const result = await cloudinary.v2.api.delete_resources([ imageId ]);
-			console.log(result);
-		} catch (err) {
-			console.log(err);
+		if (!req.file) {
+			try {
+				const imageId = properties[deleteIndex].image_url;
+				console.log(imageId);
+				const result = await cloudinary.v2.api.delete_resources([ imageId ]);
+				console.log(result);
+			} catch (err) {
+				console.log(err);
+			}
 		}
 	}
 
@@ -116,7 +124,7 @@ export default class PropertyController {
 		}
 	}
 
-	static async getPropertyAdverts(req, res) {
+	static getPropertyAdverts(req, res) {
 		const len = properties.length;
 		if (len > 0) {
 			res.status(200).json({
