@@ -8,8 +8,8 @@
 	},
 	"scripts": {
 		"lint": "eslint *.js --fix",
-		"start": "babel-node ./api/app.js",
-		"dev": "nodemon --exec babel-node ./api/app.js",
+		"start": "babel-node app.js",
+		"dev": "nodemon --exec babel-node app.js",
 		"clean": "rm -rf src",
 		"build": "npm run clean && babel api --out-dir src",
 		"test": "nyc --reporter=text-summary --reporter=lcov --reporter=text mocha --require @babel/polyfill --require @babel/register test/*.js --timeout 20000 --exit",

@@ -18,3 +18,8 @@ after_script:
   - npm run coverage
   - npm run coveralls
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+deploy:
+  provider: heroku
+  api_key:
+    secure: "4a6059bc-1961-40bb-abdb-a935abc15bd1"
+  app: my-property-pro-app
