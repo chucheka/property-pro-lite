@@ -15,7 +15,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
 	res.status(200).send('Welcome to the Property Pro API');
 });
 
