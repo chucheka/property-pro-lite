@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/ucheka22/property-pro-lite.svg?branch=develop)](https://travis-ci.com/ucheka22/property-pro-lite)
-[![Coverage Status](https://coveralls.io/repos/github/ucheka22/property-pro-lite/badge.svg)](https://coveralls.io/github/ucheka22/property-pro-lite)
+[![Coverage Status](https://coveralls.io/repos/github/ucheka22/property-pro-lite/badge.svg?branch=ch-code-refactor-167261583)](https://coveralls.io/github/ucheka22/property-pro-lite?branch=ch-code-refactor-167261583)
 
 # PropertyPro-Lite
 >PropertyPro Lite is a online platform where people can create and search properties for sale or rent.
