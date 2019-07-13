@@ -8,7 +8,7 @@
 	},
 	"scripts": {
 		"lint": "eslint *.js --fix",
-		"start": "npm run dev",
+		"start": "npm run build",
 		"dev": "nodemon --exec babel-node app.js",
 		"clean": "rm -rf src",
 		"build": "npm run clean && babel api --out-dir src",
