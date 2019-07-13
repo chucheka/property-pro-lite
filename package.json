@@ -8,13 +8,16 @@
 	},
 	"scripts": {
 		"lint": "eslint *.js --fix",
-		"start": "npm run build",
-		"dev": "nodemon --exec babel-node app.js",
+		"start": "npm run build && node src/server/app.js",
+		"dev": "nodemon --exec babel-node ./api/server/app.js
 		"clean": "rm -rf src",
 		"build": "npm run clean && babel api --out-dir src",
 		"test": "nyc --reporter=text-summary --reporter=lcov --reporter=text mocha --require @babel/polyfill --require @babel/register test/*.js --timeout 20000 --exit",
 		"coverage": "nyc report --reporter=text-lcov | coveralls"
 	},
+  "engines":{
+    "node":"8.11.2"
+  },
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/ucheka22/property-pro-lite.git"

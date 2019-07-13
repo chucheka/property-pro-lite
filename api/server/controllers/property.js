@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import cloudinary from 'cloudinary';
 // import uploads from '../middleware/multer';
-import { properties } from '../model/propertyDB';
+import properties from '../model/propertyDB';
 
 dotenv.config();
 // Configure cloudinary
