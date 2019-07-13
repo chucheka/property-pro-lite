@@ -1,9 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
+// import '@babel/polyfill';
 
-import propertyRoute from './api/server/routes/property';
-import userRoute from './api/server/routes/user';
+import propertyRoute from './routes/property';
+import userRoute from './routes/user';
 // import user from './server/model/userDB';
 
 dotenv.config();
