@@ -42,7 +42,7 @@
     }
   },
   "paths": {
-    "/user/auth/signup": {
+    "/auth/signup": {
       "post": {
         "tags": [
           "auth"
@@ -84,7 +84,7 @@
         }
       }
     },
-    "/user/auth/signin": {
+    "/auth/signin": {
       "post": {
         "tags": [
           "auth"
