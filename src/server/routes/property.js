@@ -2,7 +2,7 @@
 
 var cov_2mt4gfgnuz = function () {
   var path = "C:\\Users\\UCHEKA CHUKWUKELEUBA\\Desktop\\propertypro3\\property-pro-lite\\api\\server\\routes\\property.js";
-  var hash = "7a54d824277f9462486c6d99faacd316c5906789";
+  var hash = "831e4775f985d13010e568260c6c26a5bfbf7acf";
   var global = new Function("return this")();
   var gcv = "__coverage__";
   var coverageData = {
@@ -10,81 +10,101 @@ var cov_2mt4gfgnuz = function () {
     statementMap: {
       "0": {
         start: {
-          line: 5,
+          line: 6,
           column: 15
         },
         end: {
-          line: 5,
+          line: 6,
           column: 31
         }
       },
       "1": {
         start: {
-          line: 7,
+          line: 8,
           column: 0
         },
         end: {
-          line: 7,
-          column: 85
+          line: 8,
+          column: 54
         }
       },
       "2": {
         start: {
-          line: 8,
+          line: 9,
           column: 0
         },
         end: {
-          line: 8,
-          column: 72
+          line: 9,
+          column: 54
         }
       },
       "3": {
         start: {
-          line: 9,
+          line: 10,
           column: 0
         },
         end: {
-          line: 9,
-          column: 74
+          line: 10,
+          column: 85
         }
       },
       "4": {
         start: {
-          line: 10,
+          line: 11,
           column: 0
         },
         end: {
-          line: 10,
-          column: 71
+          line: 11,
+          column: 72
         }
       },
       "5": {
         start: {
-          line: 11,
+          line: 12,
           column: 0
         },
         end: {
-          line: 11,
-          column: 67
+          line: 12,
+          column: 74
         }
       },
       "6": {
         start: {
-          line: 12,
+          line: 13,
           column: 0
         },
         end: {
-          line: 12,
-          column: 75
+          line: 13,
+          column: 71
         }
       },
       "7": {
         start: {
-          line: 13,
+          line: 14,
           column: 0
         },
         end: {
-          line: 13,
+          line: 14,
+          column: 67
+        }
+      },
+      "8": {
+        start: {
+          line: 15,
+          column: 0
+        },
+        end: {
+          line: 15,
+          column: 75
+        }
+      },
+      "9": {
+        start: {
+          line: 16,
+          column: 0
+        },
+        end: {
+          line: 16,
           column: 74
         }
       }
@@ -99,12 +119,14 @@ var cov_2mt4gfgnuz = function () {
       "4": 0,
       "5": 0,
       "6": 0,
-      "7": 0
+      "7": 0,
+      "8": 0,
+      "9": 0
     },
     f: {},
     b: {},
     _coverageSchema: "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    hash: "7a54d824277f9462486c6d99faacd316c5906789"
+    hash: "831e4775f985d13010e568260c6c26a5bfbf7acf"
   };
   var coverage = global[gcv] || (global[gcv] = {});
 
@@ -130,18 +152,22 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const router = (cov_2mt4gfgnuz.s[0]++, _express.default.Router());
 cov_2mt4gfgnuz.s[1]++;
-router.post('/property', _multer.default.single('image_url'), _property.default.postAdvert);
+router.get('/auth/signup', _property.default.signup);
 cov_2mt4gfgnuz.s[2]++;
-router.delete('/property/:propertyId', _property.default.deleteAdvert);
+router.get('/auth/signin', _property.default.signin);
 cov_2mt4gfgnuz.s[3]++;
-router.patch('/property/:propertyId/sold', _property.default.markAsSold);
+router.post('/property', _multer.default.single('image_url'), _property.default.postAdvert);
 cov_2mt4gfgnuz.s[4]++;
-router.patch('/property/:propertyId', _property.default.updateAdvert);
+router.delete('/property/:propertyId', _property.default.deleteAdvert);
 cov_2mt4gfgnuz.s[5]++;
-router.get('/property/ads', _property.default.getPropertyAdverts);
+router.patch('/property/:propertyId/sold', _property.default.markAsSold);
 cov_2mt4gfgnuz.s[6]++;
-router.get('/property/propertyId', _property.default.getSpecificProperty);
+router.patch('/property/:propertyId', _property.default.updateAdvert);
 cov_2mt4gfgnuz.s[7]++;
+router.get('/property/ads', _property.default.getPropertyAdverts);
+cov_2mt4gfgnuz.s[8]++;
+router.get('/property/propertyId', _property.default.getSpecificProperty);
+cov_2mt4gfgnuz.s[9]++;
 router.get('/property/:propertyId', _property.default.getPropertyADvert);
 var _default = router;
 exports.default = _default;
