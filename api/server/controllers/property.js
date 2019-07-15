@@ -1,9 +1,18 @@
 import dotenv from 'dotenv';
 import cloudinary from 'cloudinary';
-// import uploads from '../middleware/multer';
+import { Pool } from 'pg';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 import properties from '../model/propertyDB';
+// import verifyToken from '../config/auth';
 
 dotenv.config();
+const connectionString = `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@localhost:5432/${process.env
+	.DB_NAME}`;
+const pool = new Pool({
+	connectionString
+});
+
 // Configure cloudinary
 cloudinary.config({
 	cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -11,7 +20,7 @@ cloudinary.config({
 	api_secret: process.env.CLOUDINARY_API_SECRET
 });
 export default class PropertyController {
-	// FOR CREATING PROPERTY ADVERT
+	// Challenge 2 scripts
 	static async postAdvert(req, res) {
 		const newAD = req.body;
 		const noFile = req.file;
