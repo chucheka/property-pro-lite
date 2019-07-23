@@ -12,7 +12,7 @@
 		"dev": "nodemon --exec babel-node ./api/server/app.js",
 		"clean": "rm -rf src",
 		"build": "npm run clean && babel api --out-dir src",
-		"test": "SET NODE_ENV=test && nyc --reporter=text-summary --reporter=lcov --reporter=text mocha --require @babel/polyfill --require @babel/register test/*.js --no-timeout --exit",
+		"test": "cross-env NODE_ENV=test && cross-env NODE_ENV=test nyc --reporter=text-summary --reporter=lcov --reporter=text mocha --require @babel/polyfill --require @babel/register test/*.js --no-timeout --exit",
 		"coverage": "nyc report --reporter=text-lcov | coveralls",
 		"migrate": "babel-node ./api/server/model"
 	},
@@ -44,6 +44,7 @@
 		"chai": "^4.2.0",
 		"chai-http": "^4.3.0",
 		"coveralls": "^3.0.4",
+		"cross-env": "^5.2.0",
 		"eslint": "^6.0.1",
 		"eslint-config-airbnb-base": "^13.1.0",
 		"eslint-plugin-import": "^2.18.0",
