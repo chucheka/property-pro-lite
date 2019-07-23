@@ -1,9 +1,8 @@
 import express from 'express';
-import bodyParser from 'body-parser';
+// import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from '../../swagger.json';
-// import '@babel/polyfill';
 
 import propertyRoute from './routes/property';
 import userRoute from './routes/user';
@@ -12,11 +11,11 @@ import userRoute from './routes/user';
 dotenv.config();
 const app = express();
 
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
 
 app.get('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 

@@ -12,8 +12,9 @@
 		"dev": "nodemon --exec babel-node ./api/server/app.js",
 		"clean": "rm -rf src",
 		"build": "npm run clean && babel api --out-dir src",
-		"test": "nyc --reporter=text-summary --reporter=lcov --reporter=text mocha --require @babel/polyfill --require @babel/register test/*.js --timeout 20000 --exit",
-		"coverage": "nyc report --reporter=text-lcov | coveralls"
+		"test": "SET NODE_ENV=test && nyc --reporter=text-summary --reporter=lcov --reporter=text mocha --require @babel/polyfill --require @babel/register test/*.js --no-timeout --exit",
+		"coverage": "nyc report --reporter=text-lcov | coveralls",
+		"migrate": "babel-node ./api/server/model"
 	},
 	"engines": {
 		"node": "8.11.2"
@@ -57,6 +58,7 @@
 		"datauri": "^2.0.0",
 		"dotenv": "^8.0.0",
 		"express": "^4.17.1",
+		"express-validator": "^6.1.1",
 		"jsonwebtoken": "^8.5.1",
 		"multer": "^1.4.1",
 		"pg": "^7.11.0",
