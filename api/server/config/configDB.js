@@ -7,7 +7,7 @@ let connect;
 if (process.env.NODE_ENV === 'test') {
 	connect = process.env.TEST_DB;
 } else {
-	connect = 'process.env.CLOUD_DB';
+	connect = process.env.CLOUD_DB;
 }
 console.log(connect);
 console.log(process.env.NODE_ENV);
