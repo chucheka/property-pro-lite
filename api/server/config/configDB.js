@@ -7,7 +7,7 @@ let connect;
 if (process.env.NODE_ENV === 'test') {
 	connect = process.env.TEST_DB;
 } else {
-	connect = 'postgresql://khnjslky:ZoN1Hy5Ll1xETtkh7XNXDydIGIXoZUup@otto.db.elephantsql.com:5432/khnjslky';
+	connect = process.env.CLOUD_DB;
 }
 console.log(connect);
 console.log(process.env.NODE_ENV);
