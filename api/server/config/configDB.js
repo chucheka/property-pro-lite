@@ -12,9 +12,7 @@ if (process.env.NODE_ENV === 'test') {
 console.log(connect);
 console.log(process.env.NODE_ENV);
 const pool = new Pool({
-	connectionString: connect,
-	max: 10,
-	idleTimeoutMillis: 30000
+	connectionString: connect
 });
 
 // pool.on('connect', () => {
