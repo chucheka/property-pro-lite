@@ -5,16 +5,15 @@ dotenv.config();
 
 let connect;
 if (process.env.NODE_ENV === 'test') {
-	connect = process.env.CLOUD_DB;
+	connect = process.env.TEST_DB;
 } else {
-	connect = process.env.TEST_DB || process.env.DB_URL;
+	connect = process.env.CLOUD_DB || process.en.DB_URL;
 }
 console.log(connect);
 console.log(process.env.NODE_ENV);
 const pool = new Pool({
 	connectionString: connect,
-	max: 10,
-	idleTimeoutMillis: 30000
+	max: 10
 });
 
 // pool.on('connect', () => {
