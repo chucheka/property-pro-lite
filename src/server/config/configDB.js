@@ -2,7 +2,7 @@
 
 var cov_15a6nyvn0q = function () {
   var path = "C:\\Users\\UCHEKA CHUKWUKELEUBA\\Desktop\\propertypro3\\property-pro-lite\\api\\server\\config\\configDB.js";
-  var hash = "d531250d672d9cce9686df33101aeb2062add91d";
+  var hash = "8c81c3d2674b31a8f6b3e4d883d6f502051f579c";
   var global = new Function("return this")();
   var gcv = "__coverage__";
   var coverageData = {
@@ -35,7 +35,7 @@ var cov_15a6nyvn0q = function () {
         },
         end: {
           line: 8,
-          column: 32
+          column: 31
         }
       },
       "3": {
@@ -61,20 +61,10 @@ var cov_15a6nyvn0q = function () {
       "5": {
         start: {
           line: 13,
-          column: 0
-        },
-        end: {
-          line: 13,
-          column: 34
-        }
-      },
-      "6": {
-        start: {
-          line: 14,
           column: 13
         },
         end: {
-          line: 17,
+          line: 16,
           column: 2
         }
       }
@@ -133,12 +123,12 @@ var cov_15a6nyvn0q = function () {
           },
           end: {
             line: 10,
-            column: 29
+            column: 31
           }
         }, {
           start: {
             line: 10,
-            column: 33
+            column: 35
           },
           end: {
             line: 10,
@@ -154,8 +144,7 @@ var cov_15a6nyvn0q = function () {
       "2": 0,
       "3": 0,
       "4": 0,
-      "5": 0,
-      "6": 0
+      "5": 0
     },
     f: {},
     b: {
@@ -163,7 +152,7 @@ var cov_15a6nyvn0q = function () {
       "1": [0, 0]
     },
     _coverageSchema: "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    hash: "d531250d672d9cce9686df33101aeb2062add91d"
+    hash: "8c81c3d2674b31a8f6b3e4d883d6f502051f579c"
   };
   var coverage = global[gcv] || (global[gcv] = {});
 
@@ -195,18 +184,16 @@ cov_15a6nyvn0q.s[1]++;
 if (process.env.NODE_ENV === 'test') {
   cov_15a6nyvn0q.b[0][0]++;
   cov_15a6nyvn0q.s[2]++;
-  connect = process.env.CLOUD_DB;
+  connect = process.env.TEST_DB;
 } else {
   cov_15a6nyvn0q.b[0][1]++;
   cov_15a6nyvn0q.s[3]++;
-  connect = (cov_15a6nyvn0q.b[1][0]++, process.env.DB_URL) || (cov_15a6nyvn0q.b[1][1]++, process.env.TEST_DB);
+  connect = (cov_15a6nyvn0q.b[1][0]++, process.env.CLOUD_DB) || (cov_15a6nyvn0q.b[1][1]++, process.en.DB_URL);
 }
 
 cov_15a6nyvn0q.s[4]++;
 console.log(connect);
-cov_15a6nyvn0q.s[5]++;
-console.log(process.env.NODE_ENV);
-const pool = (cov_15a6nyvn0q.s[6]++, new _pg.Pool({
+const pool = (cov_15a6nyvn0q.s[5]++, new _pg.Pool({
   connectionString: connect,
   max: 10
 })); // pool.on('connect', () => {

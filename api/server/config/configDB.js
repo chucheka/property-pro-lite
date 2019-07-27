@@ -10,7 +10,6 @@ if (process.env.NODE_ENV === 'test') {
 	connect = process.env.CLOUD_DB || process.en.DB_URL;
 }
 console.log(connect);
-console.log(process.env.NODE_ENV);
 const pool = new Pool({
 	connectionString: connect,
 	max: 10
