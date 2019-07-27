@@ -7,7 +7,7 @@ let connect;
 if (process.env.NODE_ENV === 'test') {
 	connect = process.env.TEST_DB;
 } else {
-	connect = process.env.CLOUD_DB || process.en.DB_URL;
+	connect = process.env.CLOUD_DB || process.env.DB_URL;
 }
 console.log(connect);
 const pool = new Pool({
