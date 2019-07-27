@@ -10,6 +10,9 @@ https://www.pivotaltracker.com/n/projects/2354376
 ## UI hosted on gh-pages
 https://ucheka22.github.io/property-pro-lite/UI/
 
+## APP Hosted On Heroku
+https://my-property-pro.herokuapp.com
+
 ## Table of Content
  * [Getting Started](#getting-started)
 
