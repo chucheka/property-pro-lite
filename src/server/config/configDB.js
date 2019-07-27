@@ -2,7 +2,7 @@
 
 var cov_15a6nyvn0q = function () {
   var path = "C:\\Users\\UCHEKA CHUKWUKELEUBA\\Desktop\\propertypro3\\property-pro-lite\\api\\server\\config\\configDB.js";
-  var hash = "8c81c3d2674b31a8f6b3e4d883d6f502051f579c";
+  var hash = "06140c89e392a171827d5cf609086f5a1270910e";
   var global = new Function("return this")();
   var gcv = "__coverage__";
   var coverageData = {
@@ -45,7 +45,7 @@ var cov_15a6nyvn0q = function () {
         },
         end: {
           line: 10,
-          column: 53
+          column: 54
         }
       },
       "4": {
@@ -112,7 +112,7 @@ var cov_15a6nyvn0q = function () {
           },
           end: {
             line: 10,
-            column: 52
+            column: 53
           }
         },
         type: "binary-expr",
@@ -132,7 +132,7 @@ var cov_15a6nyvn0q = function () {
           },
           end: {
             line: 10,
-            column: 52
+            column: 53
           }
         }],
         line: 10
@@ -152,7 +152,7 @@ var cov_15a6nyvn0q = function () {
       "1": [0, 0]
     },
     _coverageSchema: "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    hash: "8c81c3d2674b31a8f6b3e4d883d6f502051f579c"
+    hash: "06140c89e392a171827d5cf609086f5a1270910e"
   };
   var coverage = global[gcv] || (global[gcv] = {});
 
@@ -188,7 +188,7 @@ if (process.env.NODE_ENV === 'test') {
 } else {
   cov_15a6nyvn0q.b[0][1]++;
   cov_15a6nyvn0q.s[3]++;
-  connect = (cov_15a6nyvn0q.b[1][0]++, process.env.CLOUD_DB) || (cov_15a6nyvn0q.b[1][1]++, process.en.DB_URL);
+  connect = (cov_15a6nyvn0q.b[1][0]++, process.env.CLOUD_DB) || (cov_15a6nyvn0q.b[1][1]++, process.env.DB_URL);
 }
 
 cov_15a6nyvn0q.s[4]++;
