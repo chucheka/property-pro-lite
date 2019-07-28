@@ -192,7 +192,7 @@ describe('PROPERTY TESTING', () => {
 				});
 		});
 		it('it should not delete ad with invalid id', (done) => {
-			property.id = '39939';
+			property.id = 7655676;
 			chai
 				.request(app)
 				.delete(`/api/v1/property/${property.id}`)
@@ -207,7 +207,7 @@ describe('PROPERTY TESTING', () => {
 	});
 	describe('/GET/property/:propertyId', () => {
 		it('it should get a particular property', (done) => {
-			const propertyId = 4;
+			const propertyId = 3;
 			chai
 				.request(app)
 				.get(`/api/v1/property/${propertyId}`)
