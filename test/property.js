@@ -207,7 +207,7 @@ describe('PROPERTY TESTING', () => {
 	});
 	describe('/GET/property/:propertyId', () => {
 		it('it should get a particular property', (done) => {
-			const propertyId = 3;
+			const propertyId = 4;
 			chai
 				.request(app)
 				.get(`/api/v1/property/${propertyId}`)
