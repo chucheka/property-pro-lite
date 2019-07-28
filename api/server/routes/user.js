@@ -4,6 +4,7 @@ import { check, validationResult } from 'express-validator';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import pool from '../config/configDB';
+import { generateToken } from '../config/auth';
 
 dotenv.config();
 
@@ -72,13 +73,21 @@ router.post(
 					if (resUser) {
 						const createdUser = resUser.rows[0];
 						// Assign a token on succesful sign up
-						const token = jwt.sign(
-							{
-								userId: resUser.rows[0].id,
-								email: resUser.rows[0].email
-							},
-							process.env.JWT_KEY
-						);
+						// const token = jwt.sign(
+						// 	{
+						// 		userId: resUser.rows[0].id,
+						// 		email: resUser.rows[0].email
+						// 	},
+						// 	process.env.JWT_KEY,
+						// 	{
+						// 		expiresIn: '2days'
+						// 	}
+						// );
+						const userAuth = {
+							userId: resUser.rows[0].id,
+							email: resUser.rows[0].email
+						};
+						const token = generateToken(userAuth);
 						res.status(201).json({
 							status: 'success',
 							data: {

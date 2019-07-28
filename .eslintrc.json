@@ -20,7 +20,8 @@
 		"array-bracket-spacing": 0,
 		"max-len": 0,
 		"camelcase": 0,
-		"object-curl-newline": 0
+		"object-curl-newline": 0,
+		"operator-linebreak": 0
 	},
 	"extends": "airbnb-base"
 }
