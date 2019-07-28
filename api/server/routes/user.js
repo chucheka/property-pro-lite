@@ -4,9 +4,6 @@ import { check, validationResult } from 'express-validator';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import pool from '../config/configDB';
-// import checkEmail from '../helpers/checkEmail';
-// import verifyToken from '../config/auth';
-// import users from '../model/userDB';
 
 dotenv.config();
 
