@@ -3,10 +3,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from '../../swagger.json';
-
 import propertyRoute from './routes/property';
 import userRoute from './routes/user';
-// import user from './server/model/userDB';
 
 dotenv.config();
 const app = express();
@@ -17,7 +15,7 @@ app.use(express.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(bodyParser.json());
 
-app.get('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get('/', (req, res) => {
 	res.status(200).send('Welcome to the Property Pro API');
