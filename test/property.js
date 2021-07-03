@@ -1,9 +1,16 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../api/server/app';
-// import pool from '../api/server/config/configDB';
-// import { createProperty } from '../api/server/config/sql';
-// import { properties } from '../api/server/model/propertyDB';
+import { generateToken } from '../api/server/config/auth';
+
+const userAuth = {
+	userId: 2,
+	email: 'bigmike@gmail.com'
+};
+let token;
+before(async () => {
+	token = generateToken(userAuth);
+});
 
 const { expect } = chai;
 chai.use(chaiHttp);
@@ -18,18 +25,13 @@ const property = {
 	image_url: '/images/avatar.png'
 };
 describe('PROPERTY TESTING', () => {
-	// beforeEach(async () => {
-	// 	const result = await pool.query(createProperty);
-	// 	if (result.rows.length > 0) {
-	// 		console.log('Test property created');
-	// 	}
-	// });
 	describe('/POST/property', () => {
 		it('it should create a new property ad', (done) => {
 			chai
 				.request(app)
 				.post('/api/v1/property')
 				.set('content', 'multipart/formData')
+				.set('Authorization', `Bearer ${token}`)
 				.send(property)
 				.end((err, res) => {
 					expect(res).to.have.status(201);
@@ -52,6 +54,7 @@ describe('PROPERTY TESTING', () => {
 				.request(app)
 				.post('/api/v1/property')
 				.set('content', 'multipart/formData')
+				.set('Authorization', `Bearer ${token}`)
 				.send(property)
 				.end((err, res) => {
 					expect(res).to.have.status(500);
@@ -63,7 +66,7 @@ describe('PROPERTY TESTING', () => {
 	});
 	describe('/PATCH/property/propertyId', () => {
 		it('it should update a property data', (done) => {
-			const propertyId = 3;
+			const propertyId = 4;
 			const updateFields = {
 				state: 'Anambra',
 				city: 'Akwa',
@@ -76,6 +79,7 @@ describe('PROPERTY TESTING', () => {
 				.request(app)
 				.patch(`/api/v1/property/${propertyId}`)
 				.set('content', 'multipart/formData')
+				.set('Authorization', `Bearer ${token}`)
 				.send(updateFields)
 				.end((err, res) => {
 					expect(res).to.have.status(201);
@@ -101,6 +105,7 @@ describe('PROPERTY TESTING', () => {
 				.request(app)
 				.patch(`/api/v1/property/${propertyId}`)
 				.set('content', 'multipart/formData')
+				.set('Authorization', `Bearer ${token}`)
 				.send(updateFields)
 				.end((err, res) => {
 					expect(res).to.have.status(404);
@@ -119,7 +124,7 @@ describe('PROPERTY TESTING', () => {
 			chai
 				.request(app)
 				.patch(`/api/v1/property/${property.id}/sold`)
-				.set('content', 'application/json')
+				.set('Authorization', `Bearer ${token}`)
 				.send(updateField)
 				.end((err, res) => {
 					expect(res).to.have.status(201);
@@ -150,7 +155,7 @@ describe('PROPERTY TESTING', () => {
 	// Passed so far
 	describe('GET/property/ads', () => {
 		it('it should get all property adverts', (done) => {
-			chai.request(app).get('/api/v1/property/ads').set('Accept', 'application/json').end((err, res) => {
+			chai.request(app).get('/api/v1/property/ads').set('Authorization', `Bearer ${token}`).end((err, res) => {
 				expect(res).to.have.status(200);
 				expect(res.body).to.have.property('status');
 				expect(res.body.data).to.be.an('array');
@@ -180,7 +185,7 @@ describe('PROPERTY TESTING', () => {
 			chai
 				.request(app)
 				.delete(`/api/v1/property/${property.id}`)
-				.set('content', 'application/json')
+				.set('Authorization', `Bearer ${token}`)
 				.end((err, res) => {
 					expect(res).to.have.status(201);
 					expect(res.body.status).to.equal('success');
@@ -196,7 +201,7 @@ describe('PROPERTY TESTING', () => {
 			chai
 				.request(app)
 				.delete(`/api/v1/property/${property.id}`)
-				.set('content', 'application/json')
+				.set('Authorization', `Bearer ${token}`)
 				.end((err, res) => {
 					expect(res).to.have.status(404);
 					expect(res.body.status).to.equal('error');
@@ -207,7 +212,7 @@ describe('PROPERTY TESTING', () => {
 	});
 	describe('/GET/property/:propertyId', () => {
 		it('it should get a particular property', (done) => {
-			const propertyId = 3;
+			const propertyId = 6;
 			chai
 				.request(app)
 				.get(`/api/v1/property/${propertyId}`)

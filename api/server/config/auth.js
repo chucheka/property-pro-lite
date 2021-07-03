@@ -1,11 +1,12 @@
 import jwt from 'jsonwebtoken';
 
-const verifyToken = async (req, res, next) => {
+const verifyToken = (req, res, next) => {
 	try {
-		const token = req.headers.authorization.split(' ')[1] || res.body.data.token;
-		const authData = await jwt.verify(token, process.env.JWT_KEY);
+		const token = req.headers.authorization.split(' ')[1] || res.body.token;
+		console.log(token);
+		const authData = jwt.verify(token, process.env.JWT_KEY);
 		req.userData = authData;
-		console.log(req.userData);
+		// console.log(req.userData);
 		next();
 	} catch (error) {
 		return res.status(403).json({
@@ -15,4 +16,18 @@ const verifyToken = async (req, res, next) => {
 	}
 };
 
-export default verifyToken;
+const generateToken = (userAuth) => {
+	const token = jwt.sign(
+		{
+			userId: userAuth.id,
+			email: userAuth.email
+		},
+		process.env.JWT_KEY,
+		{
+			expiresIn: '2days'
+		}
+	);
+	return token;
+};
+
+export { verifyToken, generateToken };
